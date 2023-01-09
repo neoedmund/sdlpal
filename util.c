@@ -377,7 +377,10 @@ UTIL_calloc(
 
    return buffer; // nothing went wrong, so return buffer pointer
 }
-
+static char* toLower(char* s) {
+  for(char *p=s; *p; p++) *p=tolower(*p);
+  return s;
+}
 FILE *
 UTIL_OpenRequiredFile(
    LPCSTR            lpszFileName
@@ -398,7 +401,7 @@ UTIL_OpenRequiredFile(
 --*/
 {
    FILE         *fp;
-
+// lpszFileName=toLower(lpszFileName);
    fp = fopen(va("%s%s", PAL_PREFIX, lpszFileName), "rb");
 
    if (fp == NULL)
@@ -445,9 +448,10 @@ UTIL_OpenLog(
 {
    if ((pLogFile = fopen(_PATH_LOG, "a+")) == NULL)
    {
+   printf("log not opened\n");
       return NULL;
    }
-
+   printf("log opened %s\n", _PATH_LOG);
    return pLogFile;
 }
 
@@ -478,7 +482,7 @@ UTIL_WriteLog(
 
    if ((Priority < LOG_EMERG) || (Priority >= LOG_LAST_PRIORITY))
    {
-      return;
+     // return;
    }
 
    curTime = localtime(&lTime);

@@ -130,7 +130,7 @@ PAL_CalcBaseDamage(
    return sDamage;
 }
 
-static SHORT
+ SHORT
 PAL_CalcMagicDamage(
    WORD             wMagicStrength,
    WORD             wDefense,
@@ -605,7 +605,7 @@ PAL_BattleDisplayStatChange(
          // Show the number of damage
          //
          sDamage = g_Battle.rgEnemy[i].e.wHealth - g_Battle.rgEnemy[i].wPrevHP;
-
+printf("enemy[%d].HP %d -> %hd (%d)\n",i, g_Battle.rgEnemy[i].wPrevHP, (int) g_Battle.rgEnemy[i].e.wHealth, sDamage );
          x = PAL_X(g_Battle.rgEnemy[i].pos) - 9;
          y = PAL_Y(g_Battle.rgEnemy[i].pos) - 115;
 
@@ -617,6 +617,8 @@ PAL_BattleDisplayStatChange(
          if (sDamage < 0)
          {
             PAL_BattleUIShowNum((WORD)(-sDamage), PAL_XY(x, y), kNumColorBlue);
+            if ((SHORT) g_Battle.rgEnemy[i].e.wHealth>0)
+            PAL_BattleUIShowNum((WORD)( g_Battle.rgEnemy[i].e.wHealth), PAL_XY(x, y+10), kNumColorCyan);//neoe current HP
          }
          else
          {
@@ -719,8 +721,8 @@ PAL_BattlePostActionCheck(
          //
          // This enemy is KO'ed
          //
-         g_Battle.iExpGained += g_Battle.rgEnemy[i].e.wExp;
-         g_Battle.iCashGained += g_Battle.rgEnemy[i].e.wCash;
+         g_Battle.iExpGained += 10* g_Battle.rgEnemy[i].e.wExp+100; //neoe cheat 10x
+         g_Battle.iCashGained += 10* g_Battle.rgEnemy[i].e.wCash+100;
 
          SOUND_Play(g_Battle.rgEnemy[i].e.wDeathSound);
          g_Battle.rgEnemy[i].wObjectID = 0;
@@ -4395,6 +4397,7 @@ PAL_BattleEnemyPerformAction(
                }
 
 #ifndef INVINCIBLE
+if (sDamage<   gpGlobals->g.PlayerRoles.rgwHP[w]) // neoe: cheat , no death
                gpGlobals->g.PlayerRoles.rgwHP[w] -= sDamage;
 #endif
 
@@ -4430,6 +4433,7 @@ PAL_BattleEnemyPerformAction(
             }
 
 #ifndef INVINCIBLE
+if (sDamage<   gpGlobals->g.PlayerRoles.rgwHP[wPlayerRole]) // neoe: cheat , no death
             gpGlobals->g.PlayerRoles.rgwHP[wPlayerRole] -= sDamage;
 #endif
 
@@ -4654,6 +4658,7 @@ PAL_BattleEnemyPerformAction(
          }
 
 #ifndef INVINCIBLE
+if (sDamage<   gpGlobals->g.PlayerRoles.rgwHP[wPlayerRole]) // neoe: cheat , no death
          gpGlobals->g.PlayerRoles.rgwHP[wPlayerRole] -= sDamage;
 #endif
 

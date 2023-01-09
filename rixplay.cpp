@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-
+#include <stdio.h>
 #include "rixplay.h"
 
 #include "adplug/emuopl.h"
@@ -67,6 +67,7 @@ RIX_FillBuffer(
 
 --*/
 {
+// printf("RIX_FillBuffer(%p, %d)\n", stream, len);
    INT       i, l, oldlen = len, volume = SDL_MIX_MAXVOLUME;
    UINT      t = SDL_GetTicks();
 
@@ -227,6 +228,7 @@ RIX_Init(
 
 --*/
 {
+printf("RIX_Init(%s)\n", szFileName);
    gpRixPlayer = new RIXPLAYER;
    if (gpRixPlayer == NULL)
    {
@@ -308,6 +310,7 @@ RIX_Play(
 
 --*/
 {
+printf("RIX_Play(%d)\n", iNumRIX);
    //
    // Check for NULL pointer.
    //

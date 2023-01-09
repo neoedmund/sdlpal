@@ -88,7 +88,9 @@ VIDEO_Init(
 #elif defined (PSP)
    gpScreenReal = SDL_SetVideoMode(320, 200, 8, SDL_SWSURFACE);
 #else
-   gpScreenReal = SDL_SetVideoMode(320, 200, 8,
+// 320*5= 1600
+   gpScreenReal = SDL_SetVideoMode(1600,1000,  //320, 200,
+   8,
       SDL_SWSURFACE | SDL_RESIZABLE | (fFullScreen ? SDL_FULLSCREEN : 0));
 #endif
 

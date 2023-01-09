@@ -148,6 +148,7 @@ void CrixPlayer::rewind(int subsong) {
       while ((offset2 = RIX_SWAP32(buf_index[++subsong])) == offset1);
       length = offset2 - offset1 + 1;
       buf_addr = file_buffer + offset1;
+      printf("rewind.old(%d %d)\n",offset1,length );
    }
    opl->init();
    opl->write(1, 32);   // go to OPL2 mode

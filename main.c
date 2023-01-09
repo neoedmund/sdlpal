@@ -479,9 +479,9 @@ main(
    WORD          wScreenWidth = 0, wScreenHeight = 0;
    int           c;
    BOOL          fFullScreen = FALSE;
-
+printf("[d]1\n");
    UTIL_OpenLog();
-
+printf("[d]2\n");
 #ifdef _WIN32
 #if SDL_MAJOR_VERSION == 1 && SDL_MINOR_VERSION <= 2
    putenv("SDL_VIDEODRIVER=directx");

@@ -21,67 +21,40 @@ This program does NOT include any code or data files of the original game,
 which is proprietary and copyrighted by SoftStar Inc.
 
 
-COMPILE UNDER WINDOWS
-=====================
-
-The following compilers/IDEs are supported under Windows:
-
-1) Microsoft Visual C++ 6.0 or higher
-2) Dev-C++ 4.9.9.2
-3) Open Watcom 1.7
-
-To compile, open the respective project file (sdlpal.dsp, sdlpal.dev, or
-sdlpal.wpj). You need to have SDL development files installed.
-
-
-COMPILE UNDER GNU/LINUX
-=======================
-
-To compile, type:
-
-make CONF=Release
-
-You need to have SDL development files installed. The compiled executable
-should be found at dist/Release/GNU-Linux-x86/sdlpal.
-
-SDLPAL should also be able to run under other UNIX-like systems, however
-it's not tested.
-
-
-COMPILE UNDER MAC OS X
-======================
-
-To compile, open the project Pal.xcodeproj with Xcode, and click Build. You
-need to have SDL framework installed at /Library/Frameworks.
-
-The compiled bundle should work as a "universal" binary which works on both
-Intel and PowerPC.
-
-
-CLASSIC BUILD
 =============
+neoe做的小修改:
+1.  [模拟用功练级]  10x经验值 10x金钱 
+2.  [有限智能的扶助] 自动战斗(按a)，更智能，会偷会属性不会治疗。
+5.  [游戏生活质量改善] 显示敌人残血量 
+3.  目标平台是Linux，没有搞Windows或者手机。
+4.  走迷宫还是要自己走，找网上的攻略地图。
+-----
+游戏主要体验，就想看电影，安静的坐下来，随着镜头渡过2个小时，和按xx说电影，10分钟说完，完全是两种体验。
+-----
+对话，战斗，迷宫三大要素。战斗体验已经被我毁了，只能意思意思。毕竟策略性有限，大多数时候还是嫌麻烦。走迷宫主要方式不太好改造。
+-----
+对于仙剑， 女主的剧情发展的好快，灵儿第一次就看洗澡，然后渡过一晚，成了夫妻。还失忆了。
+林月如也是见了两面，就非君莫嫁。
+然后左拥右抱的快乐没有充分享受，只是离别多欢聚少。
+什么？你说某轩辕剑开场就是父母双亡，好吧我没事儿了。
+-----
+可以无限重制。
+比如赵灵儿像VR女友里面的"蹦"到你的面前。
+驭剑术从背后万剑飞起，射向敌人。
+和两三位佳人欢快的聊天。全程语音。
+这些体验如果能作出来该有多好啊。
+-----
+我本人想先搞一个高清重制版。最好能类似或超越八方旅人的效果(难!)。
+-----
+我对sdlpal的完成度真是很佩服，如果不是官方人士或者破解高手，几乎是我无法理解的奇迹。
+-----
+一边修改程序(辅助和作弊)，一边看网上的攻略和地图，终于第一次把全流程跑了一边。大概用了12到24小时吧。是的，2023年1月份，我，仙剑一初次通关。
+感觉这个迷宫真是太要命了。
+虐情生死离别。
+幼态审美，未成年出产。
+其他还都过的去。
+-----
+感谢，所有有关的人。
 
-By default, SDLPAL uses a revised battle system which is more exciting yet
-somewhat harder than the original game. If you prefer the traditional
-turn-based battle system, uncomment the following line:
-
-//#define PAL_CLASSIC           1
-
-in the file global.h and recompile. This will build a "classic" build which is
-100% the same as the original game.
 
 
-RUNNING THE GAME
-================
-
-The data files required for running the game are not included with the source
-package due to copyright issues. You must obtain them from the original CD.
-
-To run the game, copy all the files on the original CD to a directory, then
-copy the SDLPAL executable to the same directory, and run the executable.
-
-Note that the filenames of data files should be in lower-case under GNU/Linux
-(or other UNIX-like operating systems).
-
-
--END OF FILE-

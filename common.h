@@ -34,10 +34,10 @@ extern "C"
 #include <stdarg.h>
 #include <assert.h>
 
-#include "sdl/include/SDL.h"
-#include "sdl/include/SDL_endian.h"
+#include "SDL.h" // sdl/include/
+#include "SDL_endian.h" // sdl/include/
 
-#ifdef _SDL_stdinc_h
+#ifndef  _SDL_stdinc_h
 #define malloc       SDL_malloc
 #define calloc       SDL_calloc
 #define free         SDL_free
@@ -52,13 +52,13 @@ extern "C"
 #define SWAP32(X)    SDL_Swap32(X)
 #endif
 
-#ifndef max
-#define max(a, b)    (((a) > (b)) ? (a) : (b))
-#endif
+//#ifndef max
+//#define max(a, b)    (((a) > (b)) ? (a) : (b))
+//#endif
 
-#ifndef min
-#define min(a, b)    (((a) < (b)) ? (a) : (b))
-#endif
+//#ifndef min
+//#define min(a, b)    (((a) < (b)) ? (a) : (b))
+//#endif
 
 #if defined (__SYMBIAN32__)
 
